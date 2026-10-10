@@ -1,0 +1,314 @@
+<title>Proyecto Final</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap">
+<style>
+  /* Formal academic document — clean, structured, print-friendly feel */
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --fg: #1c1c1c;
+    --fg-muted: #555;
+    --accent: #1a4d8f;
+    --accent-light: #e8f0fa;
+    --border: #ddd;
+    --num-bg: #1a4d8f;
+    --num-fg: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1a1a;
+      --surface: #242424;
+      --fg: #e4e2de;
+      --fg-muted: #999;
+      --accent: #5b9bd5;
+      --accent-light: #1e2d3d;
+      --border: #333;
+      --num-bg: #5b9bd5;
+      --num-fg: #111;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1a1a;
+    --surface: #242424;
+    --fg: #e4e2de;
+    --fg-muted: #999;
+    --accent: #5b9bd5;
+    --accent-light: #1e2d3d;
+    --border: #333;
+    --num-bg: #5b9bd5;
+    --num-fg: #111;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 2.5rem;
+    line-height: 1.65;
+  }
+
+  /* Header block */
+  .doc-header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .institution {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .course-name {
+    font-size: 0.88rem;
+    color: var(--fg-muted);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+    color: var(--fg);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    margin-top: 0.75rem;
+  }
+
+  .meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+  /* Sections */
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p, li {
+    font-size: 0.9rem;
+    color: var(--fg);
+  }
+
+  p { margin: 0 0 0.75rem; }
+
+  /* Deliverables */
+  .deliverables {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .item {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .item-num {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    background: var(--num-bg);
+    color: var(--num-fg);
+    font-weight: 700;
+    font-size: 0.82rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .item-content h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    color: var(--fg);
+  }
+
+  .item-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    line-height: 1.55;
+  }
+
+  .item-content p + p {
+    margin-top: 0.4rem;
+  }
+
+  .example {
+    background: var(--surface);
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.5rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+    font-style: italic;
+  }
+
+  /* Format section */
+  .format-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .format-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .format-box li {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+  }
+
+  footer strong { color: var(--fg); }
+</style>
+
+<div class="doc-header">
+  <div class="institution">Universidad de Caldas</div>
+  <div class="course-name">Análisis y Diseño de Soluciones Web · 10027G8F</div>
+  <h1>Proyecto Final</h1>
+  <div class="meta">
+    <span><strong>Valor:</strong> 35%</span>
+    <span><strong>Modalidad:</strong> Grupos de 3–4</span>
+    <span><strong>Semestre:</strong> Oct 2026</span>
+  </div>
+</div>
+
+<h2>Contexto</h2>
+<p>Durante la semana han trabajado con una idea de aplicación web (Domicilios, Ropa usada, Canchas o Barbería). Este proyecto consolida todo lo aprendido en un documento profesional de análisis y diseño, tal como lo haría un equipo de desarrollo real antes de escribir la primera línea de código.</p>
+
+<h2>Entregables</h2>
+
+<div class="deliverables">
+  <div class="item">
+    <div class="item-num">1</div>
+    <div class="item-content">
+      <h3>Descripción del negocio y planteamiento del problema</h3>
+      <p>Párrafo que explique: a qué se dedica el negocio, cuál es el problema o necesidad que la aplicación resuelve, y quién se beneficia con la solución.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">2</div>
+    <div class="item-content">
+      <h3>Identificación de usuarios y roles</h3>
+      <p>Tabla o listado con los tipos de usuario del sistema (ej. cliente, administrador, repartidor), qué puede hacer cada uno dentro de la aplicación y qué permisos tiene.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">3</div>
+    <div class="item-content">
+      <h3>Requisitos funcionales (mínimo 10)</h3>
+      <p>Lista numerada con formato RF-01, RF-02, etc. Cada requisito debe indicar claramente qué hace el sistema.</p>
+      <div class="example">Ej: RF-01: El sistema debe permitir al cliente registrarse con correo electrónico y contraseña.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">4</div>
+    <div class="item-content">
+      <h3>Requisitos no funcionales (mínimo 5)</h3>
+      <p>Lista numerada con formato RNF-01, RNF-02, etc. Cubrir al menos: rendimiento, seguridad, usabilidad, disponibilidad o compatibilidad.</p>
+      <div class="example">Ej: RNF-01: La aplicación debe cargar en menos de 3 segundos con conexión estándar.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">5</div>
+    <div class="item-content">
+      <h3>Diagramas UML</h3>
+      <p>Tres diagramas elaborados en Draw.io, Lucidchart o herramienta similar:</p>
+      <p><strong>Diagrama de casos de uso:</strong> con actores, casos de uso, relaciones include/extend y límite del sistema.</p>
+      <p><strong>Diagrama de clases:</strong> mínimo 5 clases con atributos, métodos y relaciones (herencia, composición o asociación).</p>
+      <p><strong>Diagrama de secuencia:</strong> para el flujo principal de la aplicación (ej. hacer un pedido, reservar una cancha, agendar un corte).</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">6</div>
+    <div class="item-content">
+      <h3>Arquitectura propuesta</h3>
+      <p>Explicar qué arquitectura usarían (cliente-servidor, tres capas, MVC) y por qué. Incluir un diagrama simple que muestre los componentes y cómo se comunican.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">7</div>
+    <div class="item-content">
+      <h3>Mockups de las pantallas principales</h3>
+      <p>Mínimo 5 pantallas diseñadas en Figma, Balsamiq o a mano escaneadas:</p>
+      <p>• Inicio / Landing</p>
+      <p>• Registro o Login</p>
+      <p>• Pantalla principal del usuario</p>
+      <p>• Pantalla de la funcionalidad más importante</p>
+      <p>• Panel de administración</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-num">8</div>
+    <div class="item-content">
+      <h3>Metodología de desarrollo</h3>
+      <p>Indicar si usarían Cascada o Ágil (Scrum/Kanban). Justificar la elección con al menos dos razones concretas y explicar cómo organizarían las fases del SDLC para su proyecto.</p>
+    </div>
+  </div>
+</div>
+
+<h2>Formato de entrega</h2>
+
+<div class="format-box">
+  <ul>
+    <li>Documento en formato <strong>PDF o Word</strong></li>
+    <li>Los diagramas UML pueden ir embebidos en el documento o como imágenes adjuntas</li>
+    <li>Los mockups pueden ser capturas de pantalla de la herramienta utilizada</li>
+    <li>Si usaron Google Forms u otra herramienta en línea, incluir el enlace</li>
+  </ul>
+</div>
+
+<footer>
+  <p><strong>Docente:</strong> Marlon Darío Nieves Padilla · Universidad de Caldas · Octubre 2026</p>
+</footer>
